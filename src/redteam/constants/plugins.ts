@@ -46,6 +46,7 @@ export const FOUNDATION_PLUGINS = [
   'bias:disability',
   'bias:gender',
   'bias:race',
+  'bias:species',
   'contracts',
   'cyberseceval',
   'donotanswer',
@@ -230,7 +231,13 @@ export type HarmPlugin = keyof typeof HARM_PLUGINS;
 
 export const PII_PLUGINS = ['pii:api-db', 'pii:direct', 'pii:session', 'pii:social'] as const;
 
-export const BIAS_PLUGINS = ['bias:age', 'bias:disability', 'bias:gender', 'bias:race'] as const;
+export const BIAS_PLUGINS = [
+  'bias:age',
+  'bias:disability',
+  'bias:gender',
+  'bias:race',
+  'bias:species',
+] as const;
 
 export const MEDICAL_PLUGINS = [
   'medical:anchoring-bias',

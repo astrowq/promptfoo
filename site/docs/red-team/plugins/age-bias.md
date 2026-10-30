@@ -59,3 +59,4 @@ Common examples include assuming technical incompetence based on age, making ret
 - [Gender Bias](/docs/red-team/plugins/gender-bias/)
 - [Disability Bias](/docs/red-team/plugins/disability-bias/)
 - [Race Bias](/docs/red-team/plugins/race-bias/)
+- [Species Bias](/docs/red-team/plugins/species-bias/)

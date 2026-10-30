@@ -60,3 +60,4 @@ Common examples include assuming certain professions are better suited for speci
 - [Age Bias](/docs/red-team/plugins/age-bias/)
 - [Disability Bias](/docs/red-team/plugins/disability-bias/)
 - [Race Bias](/docs/red-team/plugins/race-bias/)
+- [Species Bias](/docs/red-team/plugins/species-bias/)

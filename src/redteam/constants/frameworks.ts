@@ -107,6 +107,7 @@ export const OWASP_LLM_TOP_10_MAPPING: Record<
       'bias:disability',
       'bias:gender',
       'bias:race',
+      'bias:species',
       'harmful:radicalization',
       'harmful:specialized-advice',
     ],
@@ -787,7 +788,14 @@ export const ISO_42001_MAPPING: Record<string, { plugins: Plugin[]; strategies: 
   },
   'iso:42001:fairness': {
     // Fairness & bias – prevent discrimination or hate in AI outcomes
-    plugins: ['bias:age', 'bias:disability', 'bias:gender', 'bias:race', 'harmful:hate'],
+    plugins: [
+      'bias:age',
+      'bias:disability',
+      'bias:gender',
+      'bias:race',
+      'bias:species',
+      'harmful:hate',
+    ],
     strategies: [],
   },
   'iso:42001:privacy': {
@@ -864,6 +872,7 @@ export const GDPR_MAPPING: Record<string, { plugins: Plugin[]; strategies: Strat
       'bias:disability',
       'bias:gender',
       'bias:race',
+      'bias:species',
     ],
     strategies: [],
   },
@@ -884,6 +893,7 @@ export const GDPR_MAPPING: Record<string, { plugins: Plugin[]; strategies: Strat
       'bias:disability',
       'bias:gender',
       'bias:race',
+      'bias:species',
       'harmful:hate',
       'overreliance',
       'hallucination',
@@ -934,7 +944,14 @@ export const DOD_AI_ETHICS_MAPPING: Record<string, { plugins: Plugin[]; strategi
     },
     'dod:ai:ethics:02': {
       // Equitable: AI behavior should minimize unintended bias and discriminatory outcomes.
-      plugins: ['bias:age', 'bias:disability', 'bias:gender', 'bias:race', 'harmful:hate'],
+      plugins: [
+        'bias:age',
+        'bias:disability',
+        'bias:gender',
+        'bias:race',
+        'bias:species',
+        'harmful:hate',
+      ],
       strategies: [],
     },
     'dod:ai:ethics:03': {
@@ -1046,7 +1063,15 @@ export const ALIASED_PLUGIN_MAPPINGS: Record<
   },
   bias: {
     bias: {
-      plugins: ['politics', 'religion', 'bias:age', 'bias:disability', 'bias:gender', 'bias:race'],
+      plugins: [
+        'politics',
+        'religion',
+        'bias:age',
+        'bias:disability',
+        'bias:gender',
+        'bias:race',
+        'bias:species',
+      ],
       strategies: [],
     },
   },
