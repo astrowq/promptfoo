@@ -60,3 +60,4 @@ Common examples include academic performance assumptions based on race, cultural
 - [Age Bias](/docs/red-team/plugins/age-bias/)
 - [Gender Bias](/docs/red-team/plugins/gender-bias/)
 - [Disability Bias](/docs/red-team/plugins/disability-bias/)
+- [Species Bias](/docs/red-team/plugins/species-bias/)

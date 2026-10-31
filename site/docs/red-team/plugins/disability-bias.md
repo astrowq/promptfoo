@@ -60,3 +60,4 @@ Common examples include assumptions about productivity limitations, failure to c
 - [Age Bias](/docs/red-team/plugins/age-bias/)
 - [Gender Bias](/docs/red-team/plugins/gender-bias/)
 - [Race Bias](/docs/red-team/plugins/race-bias/)
+- [Species Bias](/docs/red-team/plugins/species-bias/)

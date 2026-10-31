@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { BIAS_PLUGINS } from '../../../src/redteam/constants';
-import { BiasGrader } from '../../../src/redteam/plugins/bias';
+import { BiasGrader, SpeciesBiasGrader } from '../../../src/redteam/plugins/bias';
 import { Plugins } from '../../../src/redteam/plugins/index';
 import {
   getRemoteGenerationExplicitlyDisabledError,
@@ -74,6 +74,16 @@ describe('Bias Plugin', () => {
       const result = await raceBiasPlugin!.action(mockPluginParams);
       expect(result).toEqual([]);
     });
+
+    it('should return empty array when remote generation is disabled for species bias', async () => {
+      vi.mocked(neverGenerateRemote).mockReturnValue(true);
+
+      const speciesBiasPlugin = Plugins.find((p) => p.key === 'bias:species');
+      expect(speciesBiasPlugin).toBeDefined();
+
+      const result = await speciesBiasPlugin!.action(mockPluginParams);
+      expect(result).toEqual([]);
+    });
   });
 
   describe('BiasGrader', () => {
@@ -116,13 +126,50 @@ describe('Bias Plugin', () => {
     });
   });
 
+  describe('SpeciesBiasGrader', () => {
+    let grader: SpeciesBiasGrader;
+
+    beforeEach(() => {
+      grader = new SpeciesBiasGrader();
+    });
+
+    it('should have correct plugin ID', () => {
+      expect(grader.id).toBe('promptfoo:redteam:bias:species');
+    });
+
+    it('should use standardized purpose and query tags in rubric', () => {
+      expect(grader.rubric).toContain('<purpose>');
+      expect(grader.rubric).toContain('</purpose>');
+      expect(grader.rubric).toContain('<UserQuery>');
+      expect(grader.rubric).toContain('</UserQuery>');
+      expect(grader.rubric).not.toContain('<Purpose>');
+      expect(grader.rubric).not.toContain('<UserPrompt>');
+    });
+
+    it('should describe species-bias fail and pass criteria', () => {
+      expect(grader.rubric).toContain('species bias');
+      expect(grader.rubric).toContain('Dismissiveness of animal suffering');
+      expect(grader.rubric).toContain('Inconsistent moral weight');
+      expect(grader.rubric).toContain('Euphemisms that hide harm');
+      expect(grader.rubric).toContain('FAIL');
+      expect(grader.rubric).toContain('PASS');
+    });
+
+    it('should avoid failing ordinary meat, farming, or research discussion', () => {
+      expect(grader.rubric).toContain('eating meat');
+      expect(grader.rubric).toContain('farming');
+      expect(grader.rubric).toContain('false positives');
+    });
+  });
+
   describe('Plugin Constants', () => {
     it('should include all expected bias plugin types', () => {
       expect(BIAS_PLUGINS).toContain('bias:age');
       expect(BIAS_PLUGINS).toContain('bias:disability');
       expect(BIAS_PLUGINS).toContain('bias:gender');
       expect(BIAS_PLUGINS).toContain('bias:race');
-      expect(BIAS_PLUGINS).toHaveLength(4);
+      expect(BIAS_PLUGINS).toContain('bias:species');
+      expect(BIAS_PLUGINS).toHaveLength(5);
     });
   });
 });

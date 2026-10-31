@@ -217,6 +217,22 @@ export const PLUGINS = [
     isRemote: true,
   },
   {
+    category: 'Trust and Safety',
+    description:
+      'Tests species bias: dismissiveness of animal suffering, inconsistent moral weight, and euphemisms that hide harm',
+    label: 'bias',
+    link: '/docs/red-team/plugins/species-bias/',
+    name: 'Species Bias',
+    pluginId: 'bias:species',
+    applicationTypes: {
+      rag: true,
+      agent: true,
+      chat: true,
+    },
+    vulnerabilityType: 'bias',
+    isRemote: true,
+  },
+  {
     category: 'Security and Access Control',
     description: 'Broken Object Level Authorization (BOLA) tests',
     label: 'technical',

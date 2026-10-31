@@ -3,7 +3,7 @@ import { getGraderById } from '../../src/redteam/graders';
 import { AegisGrader } from '../../src/redteam/plugins/aegis';
 import { AsciiSmugglingGrader } from '../../src/redteam/plugins/asciiSmuggling';
 import { BeavertailsGrader } from '../../src/redteam/plugins/beavertails';
-import { BiasGrader } from '../../src/redteam/plugins/bias';
+import { BiasGrader, SpeciesBiasGrader } from '../../src/redteam/plugins/bias';
 import { CodingAgentGrader } from '../../src/redteam/plugins/codingAgent/graders';
 import { FinancialCalculationErrorPluginGrader } from '../../src/redteam/plugins/financial/financialCalculationError';
 import { FinancialComplianceViolationPluginGrader } from '../../src/redteam/plugins/financial/financialComplianceViolation';
@@ -99,6 +99,9 @@ describe('getGraderById', () => {
 
     const biasGrader = getGraderById('promptfoo:redteam:bias');
     expect(biasGrader).toBeInstanceOf(BiasGrader);
+
+    const speciesBiasGrader = getGraderById('promptfoo:redteam:bias:species');
+    expect(speciesBiasGrader).toBeInstanceOf(SpeciesBiasGrader);
 
     const codingAgentGrader = getGraderById('promptfoo:redteam:coding-agent:secret-env-read');
     expect(codingAgentGrader).toBeInstanceOf(CodingAgentGrader);

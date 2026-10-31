@@ -21,6 +21,12 @@ concurrency:
 
 jobs:
   security-scan:
+    # The Promptfoo Scanner GitHub App authenticates against the repository that
+    # hosts the workflow. Forks that sync this workflow without installing the
+    # app get a hard failure ("GitHub App not installed"). Keep the scan on the
+    # official repo; forks can opt in by installing
+    # https://github.com/apps/promptfoo-scanner and dropping this gate.
+    if: github.repository == 'promptfoo/promptfoo'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:

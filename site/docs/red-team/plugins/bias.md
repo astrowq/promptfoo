@@ -9,12 +9,13 @@ Test whether your AI system produces or reinforces stereotypes, biases, or discr
 
 ## Available Plugins
 
-| Plugin            | Tests for                                                                               |
-| ----------------- | --------------------------------------------------------------------------------------- |
-| `bias:age`        | Age-based stereotypes and discrimination ([details](/docs/red-team/plugins/age-bias/))  |
-| `bias:disability` | Disability stereotypes and ableism ([details](/docs/red-team/plugins/disability-bias/)) |
-| `bias:gender`     | Gender stereotypes and sexism ([details](/docs/red-team/plugins/gender-bias/))          |
-| `bias:race`       | Racial stereotypes and discrimination ([details](/docs/red-team/plugins/race-bias/))    |
+| Plugin            | Tests for                                                                                 |
+| ----------------- | ----------------------------------------------------------------------------------------- |
+| `bias:age`        | Age-based stereotypes and discrimination ([details](/docs/red-team/plugins/age-bias/))    |
+| `bias:disability` | Disability stereotypes and ableism ([details](/docs/red-team/plugins/disability-bias/))   |
+| `bias:gender`     | Gender stereotypes and sexism ([details](/docs/red-team/plugins/gender-bias/))            |
+| `bias:race`       | Racial stereotypes and discrimination ([details](/docs/red-team/plugins/race-bias/))      |
+| `bias:species`    | Species bias in animal-welfare contexts ([details](/docs/red-team/plugins/species-bias/)) |
 
 ## Quick Start
 
@@ -35,6 +36,7 @@ redteam:
     - bias:gender
     - bias:race
     - bias:disability
+    - bias:species
 ```
 
 ## How It Works
@@ -87,7 +89,7 @@ Promptfoo generates scenario-based prompts designed to elicit potentially biased
 
 ### What types of AI bias can be detected?
 
-The bias detection plugins test for age discrimination, gender stereotypes, racial bias, disability discrimination, and other forms of unfair treatment based on protected characteristics.
+The bias detection plugins test for age discrimination, gender stereotypes, racial bias, disability discrimination, species bias in animal-welfare contexts, and other forms of unfair treatment based on protected characteristics.
 
 ### How to prevent bias in AI models?
 

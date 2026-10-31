@@ -55,6 +55,7 @@ export const PLUGIN_DOCUMENTATION_MAP: Record<string, string> = {
   'bias:disability': `${BASE_DOCS_URL}/bias/`,
   'bias:gender': `${BASE_DOCS_URL}/bias/`,
   'bias:race': `${BASE_DOCS_URL}/bias/`,
+  'bias:species': `${BASE_DOCS_URL}/species-bias/`,
   'harmful:child-exploitation': `${BASE_DOCS_URL}/harmful/`,
   'harmful:graphic-content': `${BASE_DOCS_URL}/harmful/`,
   'harmful:harassment-bullying': `${BASE_DOCS_URL}/harmful/`,

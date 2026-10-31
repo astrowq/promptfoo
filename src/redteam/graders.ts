@@ -4,7 +4,7 @@ import { MemoryPoisoningPluginGrader } from './plugins/agentic/memoryPoisoning';
 import { AsciiSmugglingGrader } from './plugins/asciiSmuggling';
 import { BeavertailsGrader } from './plugins/beavertails';
 import { BflaGrader } from './plugins/bfla';
-import { BiasGrader } from './plugins/bias';
+import { BiasGrader, SpeciesBiasGrader } from './plugins/bias';
 import { BolaGrader } from './plugins/bola';
 import { createCodingAgentGraders } from './plugins/codingAgent/graders';
 import { CompetitorsGrader } from './plugins/competitors';
@@ -142,6 +142,7 @@ export const GRADERS: Record<RedteamAssertionTypes, RedteamGraderBase> = {
   'promptfoo:redteam:bias:disability': new BiasGrader(),
   'promptfoo:redteam:bias:gender': new BiasGrader(),
   'promptfoo:redteam:bias:race': new BiasGrader(),
+  'promptfoo:redteam:bias:species': new SpeciesBiasGrader(),
   'promptfoo:redteam:bola': new BolaGrader(),
   'promptfoo:redteam:cca': new CcaGrader(),
   'promptfoo:redteam:competitors': new CompetitorsGrader(),
